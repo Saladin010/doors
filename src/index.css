@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+/* ============================================================
+   PROTOCOL // EI — Design tokens
+   Monochrome + one signal colour, used like safety signage.
+   ============================================================ */
+@theme {
+  /* LIGHT MODE (DEFAULT) */
+  --color-void: #f9f8f4;
+  --color-graphite-900: #ecebe6;
+  --color-graphite-800: #e0ded9;
+  --color-graphite-700: #d2cfca;
+  --color-steel-line: #b6b5b1;
+  --color-steel-dim: #8b8a86;
+  --color-paper: #141416;
+  --color-paper-dim: #4a4d53;
+  
+  --color-signal-500: #f0891c;
+  --color-signal-400: #f6a44d;
+  --color-signal-700: #c23b1f;
+
+  --font-display: "Cairo", "IBM Plex Sans Arabic", sans-serif;
+  --font-body: "IBM Plex Sans Arabic", "Tajawal", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --ease-snap: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* DARK MODE */
+[data-theme="dark"] {
+  --color-void: #0a0a0b;
+  --color-graphite-900: #141416;
+  --color-graphite-800: #1d1e20;
+  --color-graphite-700: #26282b;
+  --color-steel-line: #3a3d42;
+  --color-steel-dim: #5a5e64;
+  --color-paper: #f2f1ed;
+  --color-paper-dim: #a9a8a2;
+}
+
+/* ---------------- Base ---------------- */
+@layer base {
+  * {
+    border-color: var(--color-steel-line);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    scrollbar-color: var(--color-steel-line) transparent;
+  }
+  body {
+    background-color: var(--color-void);
+    color: var(--color-paper);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    transition: background-color 0.4s var(--ease-snap), color 0.4s var(--ease-snap);
+  }
+  ::selection {
+    background: var(--color-signal-500);
+    color: var(--color-void);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* ---------------- Custom utilities ---------------- */
+
+/* Latin / numeric technical text: keep LTR-isolated inside RTL flow */
+.mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1, "zero" 1;
+  unicode-bidi: isolate;
+  direction: ltr;
+  display: inline-block;
+}
+.mono-block {
+  font-family: var(--font-mono);
+  direction: ltr;
+  unicode-bidi: plaintext;
+}
+
+/* Numeric font-weight utilities — Tailwind v4 default scale is named only. */
+@layer utilities {
+  .font-300 {
+    font-weight: 300;
+  }
+  .font-400 {
+    font-weight: 400;
+  }
+  .font-500 {
+    font-weight: 500;
+  }
+  .font-600 {
+    font-weight: 600;
+  }
+  .font-700 {
+    font-weight: 700;
+  }
+  .font-800 {
+    font-weight: 800;
+  }
+  .font-900 {
+    font-weight: 900;
+  }
+}
+
+/* Blueprint grid hairlines */
+.blueprint-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-steel-line) 60%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-steel-line) 60%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.blueprint-grid-fine {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-paper) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-paper) 5%, transparent) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Corner-bracket framing signature motif */
+.brackets {
+  position: relative;
+}
+.brackets::before,
+.brackets::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  border-color: var(--color-signal-500);
+}
+.brackets::before {
+  top: 0;
+  inset-inline-start: 0;
+  border-top: 1px solid;
+  border-inline-start: 1px solid;
+}
+.brackets::after {
+  bottom: 0;
+  inset-inline-end: 0;
+  border-bottom: 1px solid;
+  border-inline-end: 1px solid;
+}
+
+/* Engraved metal seal for cert badges — sharp bevel via layered shadows */
+.metal-seal {
+  background:
+    radial-gradient(circle at 35% 28%, #2b2e33 0%, #16181a 60%, #0d0e10 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 18px 40px -16px rgba(0, 0, 0, 0.9),
+    0 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* Hide native scrollbar where we manage horizontal scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Thin scrollbar for page */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-steel-line);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-steel-dim);
+}
+
+/* Stamp-in snap keyframe for certification badge */
+@keyframes stamp-in {
+  0% {
+    transform: scale(2.4) rotate(-14deg);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(-3deg);
+    opacity: 1;
+  }
+}
+.animate-stamp {
+  animation: stamp-in 0.5s var(--ease-snap) forwards;
+}
+
+/* Single subtle WhatsApp pulse */
+@keyframes ring-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-signal-500) 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 16px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+.pulse-once {
+  animation: ring-pulse 2.4s var(--ease-snap) 1;
+}
+
+/* Reduced motion: kill choreographed motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

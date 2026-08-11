@@ -1,0 +1,25 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.*
+
+# Backend folder (Exclude from frontend repo)
+doors/
+
+# Personal / Build / Zip files
+*.zip
+*.publishSettings
+WhatsApp*
+Gemini_*
+New folder/
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
