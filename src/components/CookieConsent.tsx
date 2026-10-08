@@ -34,7 +34,7 @@ export default function CookieConsent() {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[60] border-t border-steel-line bg-void/95 p-4 shadow-2xl backdrop-blur-md md:bottom-5 md:left-auto md:right-5 md:max-w-sm md:rounded-sm md:border md:border-steel-line/50">
+    <div className="fixed bottom-0 left-0 right-0 z-[60] border-t border-steel-line bg-void/95 p-4 shadow-2xl backdrop-blur-md md:bottom-5 md:left-5 md:right-auto md:max-w-sm md:rounded-sm md:border md:border-steel-line/50">
       <h3 className="mb-2 text-sm font-700 text-paper">نحترم خصوصيتك</h3>
       <p className="mb-4 text-xs leading-relaxed text-paper-dim">
         نستخدم ملفات تعريف الارتباط لتحسين تجربتك وفهم كيفية استخدامك للموقع. يمكنك قبول أو رفض استخدامها للأغراض الإعلانية والتحليلية.

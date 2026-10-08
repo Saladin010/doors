@@ -14,6 +14,7 @@ import Doors from "./pages/Doors";
 import Accessories from "./pages/Accessories";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
+import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -124,6 +125,7 @@ export default function App() {
             <Route path="/accessories" element={<Accessories />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
           <WhatsApp />

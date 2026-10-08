@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "./Logo";
 
@@ -42,9 +43,9 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {navLinks.map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} className="text-sm text-paper-dim transition-colors hover:text-paper">
+                  <Link to={l.href} className="text-sm text-paper-dim transition-colors hover:text-paper">
                     {l.ar}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -107,9 +108,9 @@ export default function Footer() {
             © 2026 SMART DOORS — ALL RIGHTS RESERVED
           </p>
           <div className="flex items-center gap-4">
-            <a href="/privacy" className="text-[0.75rem] text-paper-dim hover:text-signal-500 transition-colors">
+            <Link to="/privacy" className="text-[0.75rem] text-paper-dim hover:text-signal-500 transition-colors">
               سياسة الخصوصية
-            </a>
+            </Link>
             <p className="mono text-[0.7rem] font-700 tracking-wide text-signal-500" dir="rtl">
               توريد وتركيب لجميع أنحاء مصر
             </p>

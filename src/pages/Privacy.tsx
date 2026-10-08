@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { contact } from "@/lib/data";
+import SEO from "@/components/SEO";
 
 export default function Privacy() {
   const { pathname } = useLocation();
@@ -11,6 +12,11 @@ export default function Privacy() {
 
   return (
     <main className="min-h-screen pt-24 pb-16 md:pt-32">
+      <SEO 
+        title="سياسة الخصوصية" 
+        description="سياسة الخصوصية لشركة سمارت لتصنيع ابواب الطوارئ. تعرف على كيفية جمعنا واستخدامنا لبياناتك الشخصية."
+        canonical="/privacy"
+      />
       <div className="mx-auto max-w-4xl px-5 md:px-8">
         <div className="mb-12 border-b border-steel-line pb-8">
           <h1 className="text-3xl font-700 text-paper md:text-5xl">سياسة الخصوصية</h1>

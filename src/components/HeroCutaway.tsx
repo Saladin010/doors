@@ -29,10 +29,10 @@ export default function HeroCutaway() {
 
         {/* ---- Headline + sub (top) ---- */}
         <div className="absolute inset-x-0 top-0 z-10 px-5 pt-20 opacity-100 transition-opacity duration-500 md:px-12 md:pt-24">
-          <div className="mono mb-5 flex items-center gap-3 text-[0.65rem] tracking-[0.35em] text-signal-500" dir="ltr">
-            <span className="h-px w-8 bg-signal-500" /> شركة سمارت لتصنيع ابواب الطوارئ
-          </div>
-          <h1 className="font-display text-[2.15rem] font-900 leading-[1.08] text-paper sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+          <h1 className="mono mb-5 flex items-center gap-3 text-[0.65rem] tracking-[0.35em] text-signal-500" dir="ltr">
+            <span className="h-px w-8 bg-signal-500" /> شركة سمارت لتصنيع الأبواب المقاومة للحريق وأبواب الطوارئ
+          </h1>
+          <h2 className="font-display text-[2.15rem] font-900 leading-[1.08] text-paper sm:text-6xl md:text-7xl lg:text-[5.5rem]">
             {["حماية فائقة.", "لأقصى درجات الأمان."].map((line, i) => (
               <span key={i} className="block overflow-hidden">
                 <motion.span
@@ -45,7 +45,7 @@ export default function HeroCutaway() {
                 </motion.span>
               </span>
             ))}
-          </h1>
+          </h2>
           <motion.div
             className="mono mt-4 text-[0.7rem] tracking-[0.3em] text-paper-dim sm:text-sm"
             dir="ltr"

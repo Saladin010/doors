@@ -6,9 +6,10 @@ interface ImageCatalogPageProps {
   title: string;
   description: string;
   images: string[];
+  imageAltPrefix?: string;
 }
 
-export default function ImageCatalogPage({ title, description, images }: ImageCatalogPageProps) {
+export default function ImageCatalogPage({ title, description, images, imageAltPrefix = "صورة" }: ImageCatalogPageProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   // Close lightbox on escape key
@@ -57,7 +58,7 @@ export default function ImageCatalogPage({ title, description, images }: ImageCa
               <div className="overflow-hidden bg-steel-line/20 p-2">
                 <img
                   src={src}
-                  alt={`صورة ${idx + 1}`}
+                  alt={`${imageAltPrefix} ${idx + 1}`}
                   loading="lazy"
                   className="aspect-[3/4] w-full object-cover transition-all duration-500 group-hover:scale-105"
                 />
@@ -106,7 +107,7 @@ export default function ImageCatalogPage({ title, description, images }: ImageCa
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
                 src={images[lightboxIndex]}
-                alt={`صورة ${lightboxIndex + 1}`}
+                alt={`${imageAltPrefix} ${lightboxIndex + 1}`}
                 className="max-h-full max-w-full object-contain shadow-2xl"
               />
             </div>

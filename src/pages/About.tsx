@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
 import { aboutDocuments } from "@/lib/data";
+import SEO from "@/components/SEO";
 
 export default function About() {
   return (
     <main className="min-h-screen pt-24 pb-16 md:pt-32">
+      <SEO 
+        title="عن الشركة" 
+        description="اكتشف المزيد عن شركة سمارت لتصنيع ابواب الطوارئ من خلال ملفات تعريف الشركة وكتالوجات المنتجات الخاصة بنا."
+        canonical="/about"
+      />
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         
         {/* Page Header */}

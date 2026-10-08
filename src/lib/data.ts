@@ -163,7 +163,7 @@ export const contact = {
   address: "العاشر من رمضان",
 };
 
-export const accessories = Array.from({ length: 8 }, (_, i) => `/accessories/acc-${i + 1}.jpeg`);
+export const accessories = Array.from({ length: 12 }, (_, i) => `/accessories/acc-${i + 1}.jpeg`);
 
 export const aboutDocuments = [
   {
